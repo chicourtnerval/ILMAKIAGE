@@ -1,0 +1,892 @@
+{
+ "settings": {
+  "shop": {
+   "name": "MAISON",
+   "tagline": "PARIS",
+   "currency": "£",
+   "logo": "",
+   "logoMode": "adapt",
+   "logoHeight": 28
+  },
+  "ticker": {
+   "enabled": false,
+   "text": "Free shipping on orders over £50"
+  },
+  "hero": {
+   "kicker": "",
+   "title": "Shop All",
+   "subtitle": "",
+   "text": "",
+   "button": "",
+   "image": "",
+   "color": "#000000"
+  },
+  "featured": {},
+  "categories": {
+   "femme": [
+    {
+     "id": "d_femme_1",
+     "name": "Best Sellers",
+     "image": "",
+     "kind": "cat",
+     "subs": []
+    },
+    {
+     "id": "d_femme_2",
+     "name": "Face",
+     "image": "",
+     "kind": "cat",
+     "subs": [
+      "Foundation",
+      "Concealer",
+      "Primer",
+      "Blush & Bronzer",
+      "Highlighter & Contour",
+      "Setting Spray & Powder",
+      "Brushes & Tools"
+     ]
+    },
+    {
+     "id": "d_femme_3",
+     "name": "Skin",
+     "image": "",
+     "kind": "cat",
+     "subs": [
+      "Eye Treatment",
+      "Wrinkle Filler",
+      "Moisturizer",
+      "Serum",
+      "Exfoliator",
+      "Sun Foam"
+     ]
+    },
+    {
+     "id": "d_femme_4",
+     "name": "Lips",
+     "image": "",
+     "kind": "cat",
+     "subs": [
+      "Lip Plumper",
+      "Lip Color",
+      "Lip Liner",
+      "Lip Mask"
+     ]
+    },
+    {
+     "id": "d_femme_5",
+     "name": "Brows",
+     "image": "",
+     "kind": "cat",
+     "subs": [
+      "Brow Serum",
+      "Brow Styling",
+      "Brow Brushes"
+     ]
+    },
+    {
+     "id": "d_femme_6",
+     "name": "Eyes",
+     "image": "",
+     "kind": "cat",
+     "subs": [
+      "Lash Serum",
+      "Mascara",
+      "Eyeliner",
+      "Eyeshadow Palette",
+      "Eye Lashes"
+     ]
+    },
+    {
+     "id": "d_femme_7",
+     "name": "Skin Goals",
+     "image": "",
+     "kind": "cat",
+     "subs": [
+      "Firm, Plump & Lift",
+      "Smooth & Even",
+      "Brighten & Recharge",
+      "Nourish & Hydrate",
+      "Calm & Soothe"
+     ]
+    }
+   ],
+   "homme": [],
+   "enfant": [],
+   "bebe": []
+  },
+  "catalog": {
+   "showEmpty": true
+  },
+  "sale": {
+   "enabled": false,
+   "percent": 0,
+   "label": "",
+   "dropLabel": "",
+   "hideLabel": false
+  },
+  "genders": {
+   "femme": true,
+   "homme": false,
+   "enfant": false,
+   "bebe": false
+  },
+  "colors": {
+   "sale": "#d6001c",
+   "badge": "#ff0283"
+  },
+  "images": {
+   "ratio": "square"
+  },
+  "shipping": {
+   "freeFrom": 50,
+   "fee": 3.95,
+   "note": "Free returns within 30 days."
+  },
+  "social": {
+   "instagram": "",
+   "tiktok": "",
+   "facebook": ""
+  },
+  "footer": {
+   "copyright": ""
+  },
+  "checkout": {
+   "url": "https://checkout-e425ea7db79d.herokuapp.com/"
+  },
+  "maintenance": {
+   "enabled": false,
+   "title": "Down for maintenance",
+   "text": "We’ll be back very soon. Thank you for your patience!",
+   "image": ""
+  },
+  "cartLimit": {
+   "enabled": false,
+   "amount": 500
+  },
+  "pages": {
+   "faq": {
+    "title": "FAQs",
+    "body": "How long does shipping take?\nOrders are shipped within 1 to 2 business days and usually arrive within 3 to 5 business days.\n\nHow do I find my shade?\nOn each foundation and concealer page, choose your shade from the swatches. Not sure? Contact us and we will help you.\n\nCan I return a product?\nYes, you can return any product within 30 days. See Exchanges & Returns."
+   },
+   "about": {
+    "title": "About us",
+    "body": "We create high-performance makeup and skincare that works for every skin tone, every day."
+   },
+   "shipping": {
+    "title": "Exchanges & Returns",
+    "body": "Free shipping on orders over £50, otherwise £3.95.\n\nFree returns within 30 days of delivery."
+   },
+   "contact": {
+    "title": "Contact us",
+    "body": "Email: hello@example.com"
+   },
+   "legal": {
+    "title": "Terms",
+    "body": ""
+   },
+   "cgv": {
+    "title": "Terms of Sale",
+    "body": ""
+   },
+   "privacy": {
+    "title": "Privacy",
+    "body": ""
+   }
+  }
+ },
+ "products": [
+  {
+   "id": "demo-1",
+   "handle": "",
+   "name": "Second Skin",
+   "subtitle": "Natural Finish Foundation",
+   "description": "A weightless, breathable foundation that blurs and evens skin with a natural, second-skin finish. Buildable medium coverage that lasts all day.",
+   "details": "Shake well. Apply one to two pumps with a brush or sponge, starting at the centre of the face and blending outwards.",
+   "gender": "femme",
+   "collections": [
+    "femme"
+   ],
+   "category": "Face",
+   "subcategory": "Foundation",
+   "also": [
+    {
+     "cat": "Best Sellers",
+     "sub": "",
+     "cols": [
+      "femme"
+     ]
+    }
+   ],
+   "price": 39,
+   "comparePrice": 0,
+   "images": [],
+   "colors": [
+    {
+     "code": "10",
+     "name": "Fair",
+     "hex": "#f3d9c4",
+     "image": ""
+    },
+    {
+     "code": "30",
+     "name": "Light",
+     "hex": "#ebc5a6",
+     "image": ""
+    },
+    {
+     "code": "50",
+     "name": "Medium",
+     "hex": "#d9a882",
+     "image": ""
+    },
+    {
+     "code": "70",
+     "name": "Tan",
+     "hex": "#b9825c",
+     "image": ""
+    },
+    {
+     "code": "90",
+     "name": "Deep",
+     "hex": "#8a5a3b",
+     "image": ""
+    },
+    {
+     "code": "110",
+     "name": "Rich",
+     "hex": "#5e3a25",
+     "image": ""
+    }
+   ],
+   "sizes": [],
+   "illustration": "",
+   "isNew": false,
+   "featured": false,
+   "bestseller": true,
+   "published": true,
+   "demo": true,
+   "badge": "",
+   "rating": 0,
+   "button": "shade"
+  },
+  {
+   "id": "demo-2",
+   "handle": "",
+   "name": "Bright Eyes",
+   "subtitle": "Full Coverage Concealer",
+   "description": "Creamy, crease-proof concealer that covers dark circles and blemishes in one swipe.",
+   "details": "Dot under the eyes and on any areas to correct, then tap in with your fingertip or a sponge.",
+   "gender": "femme",
+   "collections": [
+    "femme"
+   ],
+   "category": "Face",
+   "subcategory": "Concealer",
+   "also": [
+    {
+     "cat": "Best Sellers",
+     "sub": "",
+     "cols": [
+      "femme"
+     ]
+    }
+   ],
+   "price": 32,
+   "comparePrice": 0,
+   "images": [],
+   "colors": [
+    {
+     "code": "10",
+     "name": "Fair",
+     "hex": "#f3d9c4",
+     "image": ""
+    },
+    {
+     "code": "30",
+     "name": "Light",
+     "hex": "#ebc5a6",
+     "image": ""
+    },
+    {
+     "code": "50",
+     "name": "Medium",
+     "hex": "#d9a882",
+     "image": ""
+    },
+    {
+     "code": "70",
+     "name": "Tan",
+     "hex": "#b9825c",
+     "image": ""
+    },
+    {
+     "code": "90",
+     "name": "Deep",
+     "hex": "#8a5a3b",
+     "image": ""
+    }
+   ],
+   "sizes": [],
+   "illustration": "",
+   "isNew": false,
+   "featured": false,
+   "bestseller": true,
+   "published": true,
+   "demo": true,
+   "badge": "",
+   "rating": 0,
+   "button": "shade"
+  },
+  {
+   "id": "demo-3",
+   "handle": "",
+   "name": "Cloud Cream",
+   "subtitle": "Hydrating Cream Foundation",
+   "description": "A cushiony cream foundation with skincare ingredients for a dewy, hydrated glow.",
+   "details": "Warm a small amount between your fingertips and press into the skin.",
+   "gender": "femme",
+   "collections": [
+    "femme"
+   ],
+   "category": "Face",
+   "subcategory": "Foundation",
+   "also": [
+    {
+     "cat": "Skin Goals",
+     "sub": "Nourish & Hydrate",
+     "cols": [
+      "femme"
+     ]
+    }
+   ],
+   "price": 64,
+   "comparePrice": 0,
+   "images": [],
+   "colors": [
+    {
+     "code": "30",
+     "name": "Light",
+     "hex": "#ebc5a6",
+     "image": ""
+    },
+    {
+     "code": "50",
+     "name": "Medium",
+     "hex": "#d9a882",
+     "image": ""
+    },
+    {
+     "code": "70",
+     "name": "Tan",
+     "hex": "#b9825c",
+     "image": ""
+    },
+    {
+     "code": "90",
+     "name": "Deep",
+     "hex": "#8a5a3b",
+     "image": ""
+    }
+   ],
+   "sizes": [],
+   "illustration": "",
+   "isNew": true,
+   "featured": false,
+   "bestseller": false,
+   "published": true,
+   "demo": true,
+   "badge": "",
+   "rating": 0,
+   "button": "shade"
+  },
+  {
+   "id": "demo-4",
+   "handle": "",
+   "name": "Blur Base",
+   "subtitle": "Smoothing Face Primer",
+   "description": "A silky primer that blurs pores and fine lines and helps makeup last longer.",
+   "details": "Apply a thin layer after skincare, before foundation.",
+   "gender": "femme",
+   "collections": [
+    "femme"
+   ],
+   "category": "Face",
+   "subcategory": "Primer",
+   "also": [
+    {
+     "cat": "Skin Goals",
+     "sub": "Smooth & Even",
+     "cols": [
+      "femme"
+     ]
+    }
+   ],
+   "price": 34,
+   "comparePrice": 0,
+   "images": [],
+   "colors": [],
+   "sizes": [],
+   "illustration": "",
+   "isNew": false,
+   "featured": false,
+   "bestseller": false,
+   "published": true,
+   "demo": true,
+   "badge": "",
+   "rating": 0,
+   "button": "add"
+  },
+  {
+   "id": "demo-5",
+   "handle": "",
+   "name": "Flush Hour",
+   "subtitle": "Liquid Blush",
+   "description": "A lightweight liquid blush for a natural, healthy flush that lasts all day.",
+   "details": "Dot onto the apples of the cheeks and blend upwards.",
+   "gender": "femme",
+   "collections": [
+    "femme"
+   ],
+   "category": "Face",
+   "subcategory": "Blush & Bronzer",
+   "also": [
+    {
+     "cat": "Best Sellers",
+     "sub": "",
+     "cols": [
+      "femme"
+     ]
+    }
+   ],
+   "price": 29,
+   "comparePrice": 0,
+   "images": [],
+   "colors": [
+    {
+     "code": "01",
+     "name": "Petal",
+     "hex": "#f4b0a8",
+     "image": ""
+    },
+    {
+     "code": "02",
+     "name": "Rosy",
+     "hex": "#e58f8f",
+     "image": ""
+    },
+    {
+     "code": "03",
+     "name": "Berry",
+     "hex": "#c25f6b",
+     "image": ""
+    }
+   ],
+   "sizes": [],
+   "illustration": "",
+   "isNew": false,
+   "featured": false,
+   "bestseller": true,
+   "published": true,
+   "demo": true,
+   "badge": "",
+   "rating": 0,
+   "button": "add"
+  },
+  {
+   "id": "demo-6",
+   "handle": "",
+   "name": "Lock It In",
+   "subtitle": "24H Setting Spray",
+   "description": "A fine-mist setting spray that keeps makeup fresh and in place for up to 24 hours.",
+   "details": "Hold 20 cm from the face and mist in an X and T shape.",
+   "gender": "femme",
+   "collections": [
+    "femme"
+   ],
+   "category": "Face",
+   "subcategory": "Setting Spray & Powder",
+   "also": [],
+   "price": 30,
+   "comparePrice": 0,
+   "images": [],
+   "colors": [],
+   "sizes": [],
+   "illustration": "",
+   "isNew": false,
+   "featured": false,
+   "bestseller": false,
+   "published": true,
+   "demo": true,
+   "badge": "",
+   "rating": 0,
+   "button": "add"
+  },
+  {
+   "id": "demo-7",
+   "handle": "",
+   "name": "Lash Drama",
+   "subtitle": "Extreme Volume Mascara",
+   "description": "Instant volume and length with no clumps, smudges or flakes.",
+   "details": "Wiggle the brush from the root to the tip. Build up a second coat for more drama.",
+   "gender": "femme",
+   "collections": [
+    "femme"
+   ],
+   "category": "Eyes",
+   "subcategory": "Mascara",
+   "also": [
+    {
+     "cat": "Best Sellers",
+     "sub": "",
+     "cols": [
+      "femme"
+     ]
+    }
+   ],
+   "price": 28,
+   "comparePrice": 0,
+   "images": [],
+   "colors": [],
+   "sizes": [],
+   "illustration": "",
+   "isNew": false,
+   "featured": false,
+   "bestseller": true,
+   "published": true,
+   "demo": true,
+   "badge": "",
+   "rating": 0,
+   "button": "add"
+  },
+  {
+   "id": "demo-8",
+   "handle": "",
+   "name": "Lash Boost",
+   "subtitle": "Strengthening Lash Serum",
+   "description": "A nightly serum for longer, fuller, stronger-looking lashes in 4 weeks.",
+   "details": "Apply once a day at night along the upper lash line.",
+   "gender": "femme",
+   "collections": [
+    "femme"
+   ],
+   "category": "Eyes",
+   "subcategory": "Lash Serum",
+   "also": [],
+   "price": 45,
+   "comparePrice": 0,
+   "images": [],
+   "colors": [],
+   "sizes": [],
+   "illustration": "",
+   "isNew": true,
+   "featured": false,
+   "bestseller": false,
+   "published": true,
+   "demo": true,
+   "badge": "",
+   "rating": 0,
+   "button": "add"
+  },
+  {
+   "id": "demo-9",
+   "handle": "",
+   "name": "Line Up",
+   "subtitle": "Waterproof Liquid Eyeliner",
+   "description": "Precise felt-tip eyeliner with intense black colour that will not budge.",
+   "details": "Draw from the inner to the outer corner of the eye.",
+   "gender": "femme",
+   "collections": [
+    "femme"
+   ],
+   "category": "Eyes",
+   "subcategory": "Eyeliner",
+   "also": [],
+   "price": 24,
+   "comparePrice": 0,
+   "images": [],
+   "colors": [],
+   "sizes": [],
+   "illustration": "",
+   "isNew": false,
+   "featured": false,
+   "bestseller": false,
+   "published": true,
+   "demo": true,
+   "badge": "",
+   "rating": 0,
+   "button": "add"
+  },
+  {
+   "id": "demo-10",
+   "handle": "",
+   "name": "Pout Pop",
+   "subtitle": "Plumping Lip Gloss",
+   "description": "A tingling, high-shine gloss that instantly makes lips look fuller.",
+   "details": "Apply on its own or over lipstick.",
+   "gender": "femme",
+   "collections": [
+    "femme"
+   ],
+   "category": "Lips",
+   "subcategory": "Lip Plumper",
+   "also": [],
+   "price": 26,
+   "comparePrice": 0,
+   "images": [],
+   "colors": [
+    {
+     "code": "01",
+     "name": "Clear",
+     "hex": "#f2d3d6",
+     "image": ""
+    },
+    {
+     "code": "02",
+     "name": "Nude",
+     "hex": "#d9a3a0",
+     "image": ""
+    },
+    {
+     "code": "03",
+     "name": "Rose",
+     "hex": "#d97a86",
+     "image": ""
+    }
+   ],
+   "sizes": [],
+   "illustration": "",
+   "isNew": true,
+   "featured": false,
+   "bestseller": false,
+   "published": true,
+   "demo": true,
+   "badge": "",
+   "rating": 0,
+   "button": "add"
+  },
+  {
+   "id": "demo-11",
+   "handle": "",
+   "name": "Kiss Proof",
+   "subtitle": "Long-Wear Lip Color",
+   "description": "A comfortable matte lipstick with rich colour that lasts all day.",
+   "details": "Apply from the centre of the lips outwards.",
+   "gender": "femme",
+   "collections": [
+    "femme"
+   ],
+   "category": "Lips",
+   "subcategory": "Lip Color",
+   "also": [],
+   "price": 27,
+   "comparePrice": 0,
+   "images": [],
+   "colors": [
+    {
+     "code": "01",
+     "name": "Nude",
+     "hex": "#c98f7d",
+     "image": ""
+    },
+    {
+     "code": "02",
+     "name": "Red",
+     "hex": "#b0263a",
+     "image": ""
+    },
+    {
+     "code": "03",
+     "name": "Plum",
+     "hex": "#7a2f45",
+     "image": ""
+    }
+   ],
+   "sizes": [],
+   "illustration": "",
+   "isNew": false,
+   "featured": false,
+   "bestseller": false,
+   "published": true,
+   "demo": true,
+   "badge": "",
+   "rating": 0,
+   "button": "add"
+  },
+  {
+   "id": "demo-12",
+   "handle": "",
+   "name": "Brow Fix",
+   "subtitle": "Clear Brow Gel",
+   "description": "Shapes and holds brows in place all day with a natural, laminated look.",
+   "details": "Brush brows upwards and outwards.",
+   "gender": "femme",
+   "collections": [
+    "femme"
+   ],
+   "category": "Brows",
+   "subcategory": "Brow Styling",
+   "also": [],
+   "price": 22,
+   "comparePrice": 0,
+   "images": [],
+   "colors": [],
+   "sizes": [],
+   "illustration": "",
+   "isNew": false,
+   "featured": false,
+   "bestseller": false,
+   "published": true,
+   "demo": true,
+   "badge": "",
+   "rating": 0,
+   "button": "add"
+  },
+  {
+   "id": "demo-13",
+   "handle": "",
+   "name": "Brow Boost",
+   "subtitle": "Fortifying Brow Serum",
+   "description": "A nightly serum for fuller, healthier-looking brows.",
+   "details": "Apply once a day at night along the brow.",
+   "gender": "femme",
+   "collections": [
+    "femme"
+   ],
+   "category": "Brows",
+   "subcategory": "Brow Serum",
+   "also": [],
+   "price": 42,
+   "comparePrice": 0,
+   "images": [],
+   "colors": [],
+   "sizes": [],
+   "illustration": "",
+   "isNew": true,
+   "featured": false,
+   "bestseller": false,
+   "published": true,
+   "demo": true,
+   "badge": "",
+   "rating": 0,
+   "button": "add"
+  },
+  {
+   "id": "demo-14",
+   "handle": "",
+   "name": "Wake Up Call",
+   "subtitle": "Brightening Eye Cream",
+   "description": "A cooling eye cream that brightens dark circles and depuffs.",
+   "details": "Tap a small amount around the eye area morning and night.",
+   "gender": "femme",
+   "collections": [
+    "femme"
+   ],
+   "category": "Skin",
+   "subcategory": "Eye Treatment",
+   "also": [
+    {
+     "cat": "Skin Goals",
+     "sub": "Brighten & Recharge",
+     "cols": [
+      "femme"
+     ]
+    }
+   ],
+   "price": 48,
+   "comparePrice": 0,
+   "images": [],
+   "colors": [],
+   "sizes": [],
+   "illustration": "",
+   "isNew": false,
+   "featured": false,
+   "bestseller": false,
+   "published": true,
+   "demo": true,
+   "badge": "",
+   "rating": 0,
+   "button": "add"
+  },
+  {
+   "id": "demo-15",
+   "handle": "",
+   "name": "Plump Up",
+   "subtitle": "Plumping Moisturizer",
+   "description": "A rich moisturizer that plumps and smooths for a firmer-looking complexion.",
+   "details": "Massage into face and neck morning and night.",
+   "gender": "femme",
+   "collections": [
+    "femme"
+   ],
+   "category": "Skin",
+   "subcategory": "Moisturizer",
+   "also": [
+    {
+     "cat": "Best Sellers",
+     "sub": "",
+     "cols": [
+      "femme"
+     ]
+    },
+    {
+     "cat": "Skin Goals",
+     "sub": "Firm, Plump & Lift",
+     "cols": [
+      "femme"
+     ]
+    }
+   ],
+   "price": 52,
+   "comparePrice": 0,
+   "images": [],
+   "colors": [],
+   "sizes": [],
+   "illustration": "",
+   "isNew": false,
+   "featured": false,
+   "bestseller": true,
+   "published": true,
+   "demo": true,
+   "badge": "",
+   "rating": 0,
+   "button": "add"
+  },
+  {
+   "id": "demo-16",
+   "handle": "",
+   "name": "Calm Down",
+   "subtitle": "Redness Control Serum",
+   "description": "A soothing serum that visibly reduces redness and calms sensitive skin.",
+   "details": "Apply 2 to 3 drops to clean skin before moisturizer.",
+   "gender": "femme",
+   "collections": [
+    "femme"
+   ],
+   "category": "Skin",
+   "subcategory": "Serum",
+   "also": [
+    {
+     "cat": "Skin Goals",
+     "sub": "Calm & Soothe",
+     "cols": [
+      "femme"
+     ]
+    }
+   ],
+   "price": 46,
+   "comparePrice": 0,
+   "images": [],
+   "colors": [],
+   "sizes": [],
+   "illustration": "",
+   "isNew": true,
+   "featured": false,
+   "bestseller": false,
+   "published": true,
+   "demo": true,
+   "badge": "",
+   "rating": 0,
+   "button": "add"
+  }
+ ]
+}
