@@ -259,7 +259,8 @@ function cleanSettings(input) {
     colors: { sale: C('colors', 'sale'), badge: C('colors', 'badge') },
     images: { ratio: S('images', 'ratio', 10) === 'portrait' ? 'portrait' : 'square' },
     shipping: { freeFrom: N('shipping', 'freeFrom', 0, 100000), fee: N('shipping', 'fee', 0, 10000), note: S('shipping', 'note', 200) },
-    social: { instagram: S('social', 'instagram', 300), tiktok: S('social', 'tiktok', 300), facebook: S('social', 'facebook', 300) },
+    social: { instagram: S('social', 'instagram', 300), tiktok: S('social', 'tiktok', 300), facebook: S('social', 'facebook', 300), youtube: str(get('social', 'youtube') ?? '', 300) },
+    trustpilot: { id: str(get('trustpilot', 'id') ?? '', 60).replace(/[^a-z0-9]/gi, '') },
     footer: { copyright: S('footer', 'copyright', 200) },
     checkout: { url: checkoutUrl(o.checkout && o.checkout.url) },
     maintenance: cleanMaintenance(o.maintenance),
@@ -367,7 +368,8 @@ function buildFontCss() {
   const groups = new Map();
   for (const f of files) {
     const style = /italic|oblique/i.test(f) ? 'italic' : 'normal';
-    const key = `${fontWeight(f)}|${style}`;
+    const family = /noe/i.test(f) ? 'Noe Display' : 'TT Commons Pro';
+    const key = `${fontWeight(f)}|${style}|${family}`;
     if (!groups.has(key)) groups.set(key, []);
     groups.get(key).push(f);
   }
@@ -375,10 +377,10 @@ function buildFontCss() {
   const fmt = { woff2: 'woff2', woff: 'woff', otf: 'opentype', ttf: 'truetype' };
   let css = '';
   for (const [key, list] of groups) {
-    const [weight, style] = key.split('|');
+    const [weight, style, family] = key.split('|');
     list.sort((a, b) => order.indexOf(a.split('.').pop().toLowerCase()) - order.indexOf(b.split('.').pop().toLowerCase()));
     const src = list.map((f) => `url("/fonts/${f}") format("${fmt[f.split('.').pop().toLowerCase()]}")`).join(',');
-    css += `@font-face{font-family:"TT Commons Pro";src:${src};font-weight:${weight};font-style:${style};font-display:swap}\n`;
+    css += `@font-face{font-family:"${family}";src:${src};font-weight:${weight};font-style:${style};font-display:swap}\n`;
   }
   return css;
 }

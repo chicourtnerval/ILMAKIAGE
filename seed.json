@@ -145,7 +145,8 @@
   "social": {
    "instagram": "",
    "tiktok": "",
-   "facebook": ""
+   "facebook": "",
+   "youtube": ""
   },
   "footer": {
    "copyright": ""
@@ -192,6 +193,9 @@
     "title": "Privacy",
     "body": ""
    }
+  },
+  "trustpilot": {
+   "id": ""
   }
  },
  "products": [

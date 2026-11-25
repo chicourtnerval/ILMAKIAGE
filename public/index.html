@@ -7,8 +7,9 @@
 <title>Shop all</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;700&family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&family=Work+Sans:wght@400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;700&family=Playfair+Display:wght@400;700&family=Gloock&family=Inter:wght@300;400;500;600&family=Work+Sans:wght@400&display=swap" rel="stylesheet">
 <style>
+/*FONT_FACES*/
 /* ============================================================
    RÉGLAGES RAPIDES — les couleurs des étiquettes et des promos
    se changent dans le back-office (Apparence)
@@ -47,11 +48,18 @@ img{display:block;max-width:100%}
 .header-left,.header-right{flex:1;display:flex;align-items:center;gap:22px}
 .header-right{justify-content:flex-end}
 .header-link{display:flex;align-items:center;gap:8px;font-weight:600;font-size:13px;letter-spacing:.34px;text-transform:uppercase}
-.header-link svg{width:20px;height:20px}
-.icon-btn{position:relative;display:flex}
-.icon-btn svg{width:22px;height:22px}
-.bag-count{position:absolute;top:7px;left:0;right:0;text-align:center;font-size:10px;font-weight:600}
-.burger{display:none}
+.header-link .ic-search{width:17px;height:17px}
+.icon-btn{position:relative;display:flex;align-items:center;justify-content:center;min-width:22px;height:34px}
+.header svg{display:block;fill:#000}
+.ic-burger{width:19px;height:13.25px}
+.ic-close{width:13px;height:13px;display:none!important}
+body.menu-open .ic-burger{display:none!important}
+body.menu-open .ic-close{display:block!important}
+.ic-search{width:17px;height:17px}
+.ic-heart{width:21px;height:18.25px}
+.ic-bag{width:15.54px;height:20px}
+.bag-count{position:absolute;top:13px;left:0;right:0;text-align:center;font-size:9px;font-weight:600;line-height:1}
+.burger{display:none;width:20px}
 .logo{display:flex;flex-direction:column;align-items:center;line-height:1;padding:6px 0}
 .logo-main{font-family:var(--police-logo);font-weight:500;font-size:25px;letter-spacing:-.2px;text-transform:uppercase;transform:scaleY(1.08);white-space:nowrap}
 .logo-sub{font-weight:600;font-size:6.5px;letter-spacing:.6px;text-transform:uppercase;margin-top:5px}
@@ -66,14 +74,17 @@ img{display:block;max-width:100%}
 
 /* ===================== BANDEAU TITRE (forme en biais, valeurs de l'original) ===================== */
 .hero{position:relative;background:var(--noir);height:380px;padding:32px 32px 0 20px;margin:0 0 26px;overflow:hidden}
-.hero h1{position:relative;z-index:1;font-family:var(--police-titre);font-weight:700;font-size:60px;line-height:.53;height:60px;letter-spacing:1px;text-transform:uppercase;color:var(--blanc);text-align:left;margin:35px 0 0 125px;white-space:nowrap}
+.hero h1{position:relative;z-index:1;font-family:'Gloock',var(--police-titre);font-weight:400;font-synthesis:none;font-size:58px;line-height:.53;height:60px;letter-spacing:1px;text-transform:uppercase;color:var(--blanc);text-align:left;margin:35px 0 0 125px;white-space:nowrap}
 .hero .cut{position:absolute;left:0;width:100%;top:150px;height:230px;background:var(--blanc);clip-path:polygon(9% 5%,107% 99%,100% 100%,0 100%,0 40%)}
 @media (max-width:768px){
   .hero{height:164px;padding:30px 16px 35px}
-  .hero h1{margin:0;font-size:min(36px,7.6vw);line-height:.79;height:42px}
+  .hero h1{margin:0;font-size:min(35px,7.4vw);line-height:.79;height:42px}
   .hero .cut{top:90px;height:84px;clip-path:polygon(10% 9%,100% 72%,200% 136%,0 90%,-2% 38%)}
 }
 
+/* Police d'origine Noe Display (si ses fichiers sont déposés dans public/fonts) */
+body.noe .hero h1{font-family:'Noe Display','Gloock',serif;font-weight:700;font-size:60px}
+@media (max-width:768px){body.noe .hero h1{font-size:min(36px,7.6vw)}}
 /* Sous-catégories et tri */
 .tools{max-width:1200px;margin:0 auto;padding:0 20px}
 .subchips{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding-bottom:6px}
@@ -127,11 +138,13 @@ body.dim .overlay{opacity:1;pointer-events:auto}
 .dbody{flex:1;overflow-y:auto;padding:10px 22px 30px}
 .dfoot{flex-shrink:0;border-top:1px solid var(--gris-ligne);padding:16px 22px calc(16px + env(safe-area-inset-bottom,0px))}
 /* Menu */
-.mcat{display:flex;justify-content:space-between;width:100%;text-align:left;font-weight:600;font-size:14px;letter-spacing:.45px;text-transform:uppercase;padding:14px 0;border-bottom:1px solid var(--gris-ligne)}
-.msubs{padding:6px 0 10px 12px}
-.msubs button{display:block;width:100%;text-align:left;font-size:13px;line-height:30px}
-.minfo{margin-top:24px}
-.minfo button{display:block;font-size:13px;line-height:30px;color:var(--gris-texte)}
+.mmenu{position:fixed;left:0;right:0;bottom:0;top:var(--menu-top,60px);z-index:45;background:var(--blanc);overflow-y:auto;visibility:hidden;opacity:0;transition:opacity .2s,visibility 0s linear .2s;border-top:1px solid #eee}
+.mmenu.open{visibility:visible;opacity:1;transition:opacity .2s}
+.mmenu ul{list-style:none}
+.mmenu li{border-bottom:1px solid #eee}
+.mmenu button{display:flex;align-items:center;width:100%;height:64px;padding:0 27px;text-align:left;font-weight:600;font-size:14px;text-transform:uppercase;color:var(--noir)}
+body.menu-open .catnav{display:none}
+@media (min-width:641px){.mmenu{right:auto;width:400px;box-shadow:4px 0 14px rgba(0,0,0,.08)}}
 /* Recherche */
 .search-panel{position:fixed;top:0;left:0;right:0;max-height:85vh;overflow-y:auto;background:var(--blanc);z-index:100;padding:22px 24px 30px;transform:translateY(-100%);transition:transform .3s ease;visibility:hidden}
 .search-panel.open{transform:none;visibility:visible}
@@ -243,9 +256,7 @@ body.dim .overlay{opacity:1;pointer-events:auto}
 .nl-form input::placeholder{color:#888}
 .nl-form button{flex:1;height:70px;background:var(--blanc);color:var(--noir);font-weight:600;font-size:15px;text-transform:uppercase;letter-spacing:.5px}
 .nl-ok{margin-top:14px;font-size:14px}
-.socials{display:flex;justify-content:center;gap:28px;margin-top:50px}
-.socials svg{width:20px;height:20px;fill:var(--blanc)}
-.footer-links{display:flex;justify-content:center;flex-wrap:wrap;gap:14px 44px;max-width:910px;margin:50px auto 0;font-size:16px}
+.footer-links{display:flex;justify-content:center;flex-wrap:wrap;gap:14px 44px;max-width:910px;margin:60px auto 0;font-size:16px}
 .copyright{margin-top:50px;font-weight:300;font-size:12px;color:#aaa;text-transform:uppercase}
 
 /* ===================== MOBILE ===================== */
@@ -256,7 +267,9 @@ body.dim .overlay{opacity:1;pointer-events:auto}
 @media (max-width:640px){
   .header-link .txt{display:none}
   .burger{display:flex}
-  .header-left,.header-right{gap:16px}
+  .header{padding:0 27px 0 26px}
+  .header-left,.header-right{gap:27px}
+  .header-right{gap:26px}
   .catnav{justify-content:flex-start;gap:20px;height:52px;padding:0 14px;border-top:1px solid var(--gris-ligne);border-bottom:1px solid var(--gris-ligne)}
   .catnav a{font-size:13px}
   .tools{padding:0 12px}
@@ -285,26 +298,15 @@ body.dim .overlay{opacity:1;pointer-events:auto}
 <!-- ===================== EN-TÊTE ===================== -->
 <div class="topbar" id="topbar">
   <div class="ticker" id="ticker" hidden><div class="ticker-track" id="tickerTrack"></div></div>
-  <header class="header">
+  <header class="header" id="hdr">
     <div class="header-left">
-      <button class="icon-btn burger" data-open-panel="menu" aria-label="Menu">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
-      </button>
-      <button class="header-link" data-open-panel="search">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/></svg>
-        <span class="txt">Search</span>
-      </button>
-      <button class="header-link" data-open-panel="menu"><span class="txt">Shop</span></button>
+      <button class="icon-btn burger" id="burger" data-toggle-menu aria-label="Menu" aria-expanded="false"><svg class="ic-burger" viewBox="0 0 33 23" aria-hidden="true"><rect width="33" height="3"/><rect y="10" width="33" height="3"/><rect y="20" width="33" height="3"/></svg><svg class="ic-close" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 6.476L14.476 0 16 1.524 9.524 8 16 14.476 14.476 16 8 9.524 1.524 16 0 14.476 6.476 8 0 1.524 1.524 0 8 6.476z"/></svg></button>
+      <button class="header-link" data-open-panel="search" aria-label="Search"><svg class="ic-search" viewBox="0 0 34 34" aria-hidden="true"><path fill-rule="evenodd" d="M15 28C7.832 28 2 22.168 2 15S7.832 2 15 2s13 5.832 13 13-5.832 13-13 13zm11.275-3.139C28.586 22.221 30 18.776 30 15c0-8.271-6.729-15-15-15S0 6.729 0 15s6.729 15 15 15c3.776 0 7.221-1.413 9.861-3.725l7.432 7.432 1.414-1.414-7.432-7.432z"/></svg><span class="txt">Search</span></button>
     </div>
     <a href="/" class="logo" id="logo" aria-label="Home"></a>
     <div class="header-right">
-      <button class="icon-btn" data-wishview aria-label="Wishlist">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 20s-7.5-4.6-9.2-9.1C1.6 7.6 3.7 4.5 7 4.5c2 0 3.5 1.2 5 3 1.5-1.8 3-3 5-3 3.3 0 5.4 3.1 4.2 6.4C19.5 15.4 12 20 12 20z"/></svg>
-      </button>
-      <button class="icon-btn" data-open-panel="cart" aria-label="Bag">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 7h14l-1 14H6L5 7z"/><path d="M9 7V5.5a3 3 0 0 1 6 0V7"/></svg>
-        <span class="bag-count" id="bagCount">0</span>
-      </button>
+      <button class="icon-btn" data-wishview aria-label="Wishlist"><svg class="ic-heart" viewBox="0 0 38 33" aria-hidden="true"><path d="M19.677 30.434l-.677.4c-.218-.128-.444-.261-.677-.4C12.618 27.06 2 20.779 2 11c0-4.962 4.037-9 9-9a9.041 9.041 0 0 1 7.2 3.61c.377.504 1.222.504 1.6 0A9.042 9.042 0 0 1 27 2c4.962 0 9 4.038 9 9 0 9.779-10.618 16.06-16.323 19.434M27 0a11.053 11.053 0 0 0-8 3.46A11.057 11.057 0 0 0 11 0C4.934 0 0 4.935 0 11c0 10.919 11.257 17.579 17.304 21.156.421.249.817.482 1.18.7a.995.995 0 0 0 1.031 0c.364-.218.76-.451 1.181-.7C26.743 28.579 38 21.919 38 11c0-6.065-4.935-11-11-11"/></svg></button>
+      <button class="icon-btn" data-open-panel="cart" aria-label="Bag"><svg class="ic-bag" viewBox="0 0 27.7 35.7" aria-hidden="true"><path d="M25.85,6H19.7V2.85A2.86,2.86,0,0,0,16.85,0h-6A2.86,2.86,0,0,0,8,2.85V6H1.85A1.85,1.85,0,0,0,0,7.85v24A3.86,3.86,0,0,0,3.85,35.7h20a3.86,3.86,0,0,0,3.85-3.85v-24A1.85,1.85,0,0,0,25.85,6ZM9.7,2.85A1.16,1.16,0,0,1,10.85,1.7h6A1.16,1.16,0,0,1,18,2.85V6H9.7Zm16.3,29A2.15,2.15,0,0,1,23.85,34h-20A2.15,2.15,0,0,1,1.7,31.85v-24a.15.15,0,0,1,.15-.15H8V9.85H9.7V7.7H18V9.85h1.7V7.7h6.15a.15.15,0,0,1,.15.15Z"/></svg><span class="bag-count" id="bagCount" hidden>0</span></button>
     </div>
   </header>
   <nav class="catnav" id="catnav" aria-label="Categories"></nav>
@@ -326,7 +328,6 @@ body.dim .overlay{opacity:1;pointer-events:auto}
     <button type="submit">Sign up</button>
   </form>
   <p class="nl-ok" id="nlOk" hidden>Thank you! Your welcome code is on its way to your inbox.</p>
-  <div class="socials" id="socials"></div>
   <nav class="footer-links" id="footerLinks"></nav>
   <p class="copyright" id="copyright"></p>
 </footer>
@@ -334,10 +335,7 @@ body.dim .overlay{opacity:1;pointer-events:auto}
 <!-- ===================== PANNEAUX ===================== -->
 <div class="overlay" id="overlay"></div>
 
-<aside class="drawer left" id="menu" aria-label="Menu">
-  <div class="dhead"><h2>Shop</h2><button class="xbtn" data-close aria-label="Close">×</button></div>
-  <div class="dbody" id="menuBody"></div>
-</aside>
+<nav class="mmenu" id="menu" aria-label="Menu"><ul id="menuBody"></ul></nav>
 
 <aside class="drawer right" id="cart" aria-label="Bag">
   <div class="dhead"><h2 id="cartTitle">Your bag</h2><button class="xbtn" data-close aria-label="Close">×</button></div>
@@ -592,7 +590,7 @@ function addToCart(p,ci,size,qty){
   track('add',{a:{id:p.id,q:add,m:r2(priceOf(p).now*add)}});
   return true;
 }
-function updateBadge(){$('#bagCount').textContent=cartCount()}
+function updateBadge(){const n=cartCount();$('#bagCount').textContent=n;$('#bagCount').hidden=!n}
 function renderCart(){
   const items=cartItems(),{free,fee}=shipCfg(),n=cartCount(),sub=cartSub();
   const ship=fee<=0||(free>0&&sub>=free)?0:fee;
@@ -630,10 +628,7 @@ function goCheckout(){
 /* ───── Menu, recherche, pages, bas de page ───── */
 function infoPages(){return Object.entries(S.pages||{}).filter(([,v])=>v&&String(v.body||'').trim())}
 function renderMenu(){
-  const cats=catList();
-  $('#menuBody').innerHTML=cats.map(c=>{const subs=subsOf(c);return `<button class="mcat" data-cat="${e(c.id)}">${e(c.name)}</button>${subs.length?`<div class="msubs">${subs.map(s=>`<button data-cat="${e(c.id)}" data-catsub="${e(s)}">${e(s)}</button>`).join('')}</div>`:''}`}).join('')+
-    `<button class="mcat" data-cat="all">Shop All</button>`+
-    (infoPages().length?`<div class="minfo">${infoPages().map(([k,v])=>`<button data-info="${k}">${e(v.title)}</button>`).join('')}</div>`:'');
+  $('#menuBody').innerHTML=`<li><button data-cat="all">Shop All</button></li>`+catList().map(c=>`<li><button data-cat="${e(c.id)}">${e(c.name)}</button></li>`).join('');
 }
 function renderSearch(q){
   const words=norm(q).split(/\s+/).filter(Boolean),box=$('#searchBody');
@@ -646,18 +641,10 @@ function openInfo(k){
   $('#infoBody').innerHTML=`<h1>${e(pg.title)}</h1>${String(pg.body).split(/\n\s*\n/).map(t=>`<p>${e(t.trim())}</p>`).join('')}`;
   openPage('info');$('#info').scrollTop=0;
 }
-const SOCIAL_ICONS={
-  instagram:'<path d="M12 7.3A4.7 4.7 0 1 0 12 16.7 4.7 4.7 0 0 0 12 7.3zm0 7.7a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm6-7.9a1.1 1.1 0 1 1-2.2 0 1.1 1.1 0 0 1 2.2 0zM21.9 8c-.1-1.5-.4-2.8-1.5-3.9S17.9 2.6 16.4 2.5C14.8 2.4 9.2 2.4 7.6 2.5 6.1 2.6 4.8 2.9 3.7 4S2.2 6.5 2.1 8c-.1 1.6-.1 6.4 0 8 .1 1.5.4 2.8 1.6 3.9s2.4 1.5 3.9 1.6c1.6.1 7.2.1 8.8 0 1.5-.1 2.8-.4 3.9-1.6s1.5-2.4 1.6-3.9c.1-1.6.1-6.4 0-8zM19.8 18c-.3.8-1 1.5-1.8 1.8-1.3.5-4.3.4-5.9.4s-4.6.1-5.9-.4c-.8-.3-1.5-1-1.8-1.8-.5-1.3-.4-4.3-.4-5.9s-.1-4.6.4-5.9c.3-.8 1-1.5 1.8-1.8C7.5 3.9 10.5 4 12 4s4.6-.1 5.9.4c.8.3 1.5 1 1.8 1.8.5 1.3.4 4.3.4 5.9s.1 4.6-.4 5.9z"/>',
-  tiktok:'<path d="M19.6 7.7a5.7 5.7 0 0 1-3.4-1.1v7.8a5.9 5.9 0 1 1-5.1-5.8v3.1a2.8 2.8 0 1 0 2 2.7V2h3.1a4.4 4.4 0 0 0 3.4 4v1.7z"/>',
-  facebook:'<path d="M14 8.5V6.6c0-.8.2-1.3 1.4-1.3H17V2.2C16.7 2.1 15.7 2 14.6 2 12.2 2 10.6 3.4 10.6 6.1v2.4H8v3.3h2.6V22H14V11.8h2.7l.4-3.3H14z"/>'
-};
 function safeUrl(u){u=String(u||'').trim();if(!u)return '';if(!/^https?:\/\//i.test(u))u='https://'+u.replace(/^\/+/,'');return /^https?:\/\/[^\s"'<>]+$/i.test(u)?u:''}
 function renderFooter(){
   const name=(S.shop&&S.shop.name)||'';
   $('#consentTxt').textContent=`By checking this box and clicking “Sign up”, I agree to receive marketing emails from ${name||'us'}. You can unsubscribe at any time.`;
-  const soc=['instagram','tiktok','facebook'].map(k=>[k,safeUrl(S.social&&S.social[k])]).filter(([,u])=>u);
-  $('#socials').innerHTML=soc.map(([k,u])=>`<a href="${e(u)}" target="_blank" rel="noopener" aria-label="${k}"><svg viewBox="0 0 24 24">${SOCIAL_ICONS[k]}</svg></a>`).join('');
-  $('#socials').hidden=!soc.length;
   $('#footerLinks').innerHTML=infoPages().map(([k,v])=>`<a href="#" data-info="${k}">${e(v.title)}</a>`).join('');
   $('#copyright').textContent=(S.footer&&S.footer.copyright)||`© ${new Date().getFullYear()} ${name}. All rights reserved`;
 }
@@ -681,13 +668,16 @@ function openPage(id){
   if(id!=='pdp'&&id!=='info')PANELS.forEach(x=>{if(x!==id)document.getElementById(x).classList.remove('open')});
   el.classList.add('open');
   document.body.classList.add('locked');
-  if(['menu','cart','search'].includes(id))document.body.classList.add('dim');
+  if(id==='menu'){document.documentElement.style.setProperty('--menu-top',Math.round($('#hdr').getBoundingClientRect().bottom)+'px');document.body.classList.add('menu-open');$('#burger').setAttribute('aria-expanded','true')}
+  else if(id!=='pdp'&&id!=='info'){document.body.classList.remove('menu-open');$('#burger').setAttribute('aria-expanded','false')}
+  if(['cart','search'].includes(id))document.body.classList.add('dim');
   if(id==='cart')renderCart();
   if(id==='search'){renderSearch($('#q').value);setTimeout(()=>$('#q').focus(),300)}
   trackView();
 }
 function closePanel(id){
   document.getElementById(id).classList.remove('open');
+  if(id==='menu'){document.body.classList.remove('menu-open');$('#burger').setAttribute('aria-expanded','false')}
   if(!['menu','cart','search'].some(x=>document.getElementById(x).classList.contains('open')))document.body.classList.remove('dim');
   if(!PANELS.some(x=>document.getElementById(x).classList.contains('open')))document.body.classList.remove('locked');
   trackView();
@@ -703,6 +693,7 @@ function toast(msg,label){
 
 /* ───── Clics ───── */
 document.addEventListener('click',ev=>{
+  const tm=ev.target.closest('[data-toggle-menu]');if(tm){$('#menu').classList.contains('open')?closePanel('menu'):openPage('menu');return}
   const t=ev.target.closest('[data-cat],[data-sub],[data-open],[data-buy],[data-wish],[data-wishview],[data-open-panel],[data-close],[data-info],[data-ci],[data-gi],[data-size],[data-pq],[data-addpdp],[data-cq],[data-rm],[data-checkout]');
   if(!t)return;
   if(t.tagName==='A')ev.preventDefault();
@@ -792,6 +783,7 @@ async function boot(){
   trackView();clearInterval(beatTimer);beatTimer=setInterval(()=>{if(document.visibilityState==='visible')track('ping')},15000);
 }
 boot();
+try{document.fonts.load('700 20px "Noe Display"').then(f=>{if(f&&f.length)document.body.classList.add('noe')})}catch(err){}
 </script>
 </body>
 </html>
