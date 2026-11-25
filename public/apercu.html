@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Aperçu téléphone</title>
+<meta name="robots" content="noindex">
+<style>
+:root{
+  --stage:#e8e8ea;--frame:#1c1c1e;--frame-edge:#3a3a3c;--ink:#111111;
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--stage:#161616;--frame:#2c2c2e;--frame-edge:#48484a;--ink:#f0f0f0}
+}
+:root[data-theme="dark"]{--stage:#161616;--frame:#2c2c2e;--frame-edge:#48484a;--ink:#f0f0f0}
+*,*::before,*::after{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{background:var(--stage);display:flex;align-items:center;justify-content:center;overflow:hidden;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",Arial,sans-serif}
+.phone{width:414px;height:868px;flex-shrink:0;padding:12px;border-radius:62px;background:var(--frame);position:relative;transform-origin:center center;box-shadow:0 0 0 2px var(--frame-edge),0 30px 80px rgba(0,0,0,.25)}
+.phone::before,.phone::after{content:"";position:absolute;width:4px;border-radius:2px;background:var(--frame-edge)}
+.phone::before{left:-5px;top:180px;height:64px;box-shadow:0 84px 0 var(--frame-edge)}
+.phone::after{right:-5px;top:220px;height:96px}
+.screen{position:relative;width:390px;height:844px;border-radius:50px;overflow:hidden;background:#fff}
+iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}
+.status{position:absolute;top:0;left:0;right:0;height:47px;z-index:2;display:flex;align-items:center;justify-content:space-between;padding:4px 28px 0 38px;color:#111111;pointer-events:none;transition:color .25s}
+.screen.light .status{color:#fff}
+.status time{font-weight:600;font-size:16px;letter-spacing:-.01em}
+.status-icons{display:flex;align-items:center;gap:6px}
+.status-icons svg{display:block;fill:currentColor}
+.island{position:absolute;top:11px;left:50%;transform:translateX(-50%);width:124px;height:36px;border-radius:20px;background:#000}
+.home{position:absolute;bottom:8px;left:50%;transform:translateX(-50%);width:136px;height:5px;border-radius:3px;background:#111111;opacity:.85;pointer-events:none;z-index:3;transition:background-color .25s}
+.reload{position:fixed;top:16px;left:16px;z-index:5;height:40px;padding:0 16px;border:0;border-radius:8px;background:#111;color:#fff;font:600 14px/1 -apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;cursor:pointer}
+@media (max-width:500px){
+  .reload{display:none}
+  body{display:block}
+  .phone{width:100%;height:100%;padding:0;border-radius:0;background:none;box-shadow:none;transform:none!important}
+  .phone::before,.phone::after,.status,.home{display:none}
+  .screen{width:100%;height:100%;border-radius:0}
+}
+@media (prefers-reduced-motion:reduce){.status,.home{transition:none}}
+</style>
+</head>
+<body>
+<button class="reload" type="button" id="reload">Actualiser l’aperçu</button>
+<div class="phone" id="phone">
+  <div class="screen" id="screen">
+    <iframe id="site" title="Aperçu mobile du site MAISON" src="/"></iframe>
+    <div class="status" aria-hidden="true">
+      <time>9:41</time>
+      <div class="island"></div>
+      <div class="status-icons">
+        <svg width="18" height="12" viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5.5" width="3" height="6.5" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg>
+        <svg width="16" height="12" viewBox="0 0 16 12"><path d="M8 2.2c2.2 0 4.2.8 5.7 2.2l1.2-1.3C13 1.3 10.6.4 8 .4S3 1.3 1.1 3.1l1.2 1.3C3.8 3 5.8 2.2 8 2.2zm0 3.6c1.2 0 2.4.5 3.2 1.2l1.2-1.3C11.2 4.6 9.7 4 8 4S4.8 4.6 3.6 5.7l1.2 1.3c.8-.7 2-1.2 3.2-1.2zm0 3.6c-.6 0-1.1.2-1.5.5L8 11.6l1.5-1.7c-.4-.3-.9-.5-1.5-.5z"/></svg>
+        <svg width="27" height="13" viewBox="0 0 27 13"><rect x=".5" y=".5" width="23" height="12" rx="3.5" fill="none" stroke="currentColor" opacity=".45"/><rect x="2" y="2" width="20" height="9" rx="2"/><rect x="24.5" y="4.5" width="1.8" height="4" rx=".9" opacity=".45"/></svg>
+      </div>
+    </div>
+    <div class="home"></div>
+  </div>
+</div>
+<script>
+(function(){
+  var phone=document.getElementById('phone'),screen=document.getElementById('screen'),frame=document.getElementById('site'),watched=null;
+  document.getElementById('reload').addEventListener('click',function(){try{frame.contentWindow.location.reload()}catch(e){frame.src='/'}});
+  function framed(){return window.innerWidth>500}
+  function fit(){
+    if(!framed()){phone.style.transform='';phone.style.zoom='';return}
+    var s=Math.min(1,(window.innerHeight-48)/868,(window.innerWidth-48)/414);
+    /* zoom garde le texte net (transform le rend flou) */
+    if('zoom' in phone.style){phone.style.transform='';phone.style.zoom=s}else{phone.style.transform='scale('+s+')'}
+  }
+  function root(){try{return frame.contentDocument&&frame.contentDocument.documentElement}catch(e){return null}}
+  function syncTheme(){
+    var r=root();if(!r)return;
+    var t=document.documentElement.getAttribute('data-theme');
+    if(t)r.setAttribute('data-theme',t);else r.removeAttribute('data-theme');
+  }
+  function applySafe(){
+    var r=root();if(!r)return;
+    if(framed()){r.style.setProperty('--safe-t','47px');r.style.setProperty('--safe-b','34px')}
+    else{r.style.removeProperty('--safe-t');r.style.removeProperty('--safe-b')}
+    try{frame.contentWindow.dispatchEvent(new Event('resize'))}catch(e){}
+  }
+  function syncStatus(){var r=root();screen.classList.toggle('light',!!r&&r.getAttribute('data-top')==='light')}
+  function ready(){
+    syncTheme();applySafe();syncStatus();
+    var r=root();
+    if(r&&watched!==r){watched=r;new MutationObserver(syncStatus).observe(r,{attributes:true,attributeFilter:['data-top']})}
+    try{var d=frame.contentDocument,st=d.createElement('style');st.textContent='html{scrollbar-width:none}html::-webkit-scrollbar{display:none}.page-body,.rail{scrollbar-width:none}';d.head.appendChild(st)}catch(e){}
+  }
+  frame.addEventListener('load',ready);
+  try{if(frame.contentDocument&&frame.contentDocument.readyState==='complete'&&frame.contentDocument.querySelector('.site-header'))ready()}catch(e){}
+  new MutationObserver(syncTheme).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
+  window.addEventListener('resize',function(){fit();applySafe()});
+  fit();
+})();
+</script>
+</body>
+</html>
